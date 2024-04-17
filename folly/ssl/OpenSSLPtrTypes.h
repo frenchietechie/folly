@@ -165,7 +165,7 @@ struct OpenSSLOwnedStackDeleter {
   void operator()(StackType* stack) const {
     OPENSSL_sk_pop_free(
         reinterpret_cast<OPENSSL_STACK*>(stack),
-        reinterpret_cast<OPENSSL_sk_freefunc>(ElementDestructor));
+        reinterpret_cast<OPENSSL_sk_free_func>(ElementDestructor));
   }
 };
 
